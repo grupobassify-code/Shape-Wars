@@ -83,6 +83,10 @@ export const CombatHUD: React.FC<CombatHUDProps> = ({
   blueScore = 0,
   redScore = 0,
   gameMode = '3v3',
+  activeModifierAlert = null,
+  poisonGasDistance = 0,
+  isSuddenDeathActive = false,
+  powerOrbAvailable = true,
   onTogglePause,
   onForfeit,
   onToggleAutoAim,
@@ -101,7 +105,8 @@ export const CombatHUD: React.FC<CombatHUDProps> = ({
   return (
     <div className="absolute inset-0 max-w-full overflow-hidden pointer-events-none z-20 flex flex-col justify-between p-1.5 sm:p-4 select-none">
       {/* Top Banner: Knockout / CTF Scoreboard, Clock & Series Indicator */}
-      <div className="flex items-center justify-between w-full max-w-6xl mx-auto gap-1 sm:gap-2 pointer-events-auto min-w-0 px-1">
+      <div className="flex flex-col items-center w-full max-w-6xl mx-auto gap-1.5 pointer-events-auto min-w-0 px-1">
+        <div className="flex items-center justify-between w-full gap-1 sm:gap-2 min-w-0">
         {/* Blue Team Roster & Rounds/Flags */}
         <div className="flex items-center gap-1.5 sm:gap-2 bg-slate-900/90 border border-sky-500/40 rounded-xl sm:rounded-2xl px-2 sm:px-3 py-1 sm:py-1.5 backdrop-blur-md shadow-xl min-w-0">
           <div className="flex flex-col min-w-0">
@@ -307,6 +312,45 @@ export const CombatHUD: React.FC<CombatHUDProps> = ({
           </button>
         </div>
       </div>
+
+      {/* Active Modifier Warning Alert (e.g. Niebla Tóxica, Muerte Súbita) */}
+      {activeModifierAlert && (
+        <div className="pointer-events-none animate-bounce flex items-center gap-1.5 px-3 py-1 rounded-full bg-rose-600/95 border border-amber-300 text-white font-black text-[11px] sm:text-xs shadow-[0_0_20px_rgba(244,63,94,0.7)] backdrop-blur-md">
+          <span className="text-sm">⚡</span>
+          <span>{activeModifierAlert}</span>
+        </div>
+      )}
+
+      {/* Tactical Mañas & Arena Modifiers Strip */}
+      <div className="flex items-center gap-1 sm:gap-2 overflow-x-auto max-w-full px-1 py-0.5 pointer-events-none">
+        <span className="px-2 py-0.5 rounded-md bg-slate-900/80 border border-slate-700/80 text-[9px] sm:text-[10px] font-bold text-sky-300 flex items-center gap-1 shrink-0">
+          <span>🌀</span> Trampolines
+        </span>
+        <span className="px-2 py-0.5 rounded-md bg-slate-900/80 border border-slate-700/80 text-[9px] sm:text-[10px] font-bold text-amber-300 flex items-center gap-1 shrink-0">
+          <span>⚡</span> Cintas Turbo
+        </span>
+        <span className="px-2 py-0.5 rounded-md bg-slate-900/80 border border-slate-700/80 text-[9px] sm:text-[10px] font-bold text-emerald-300 flex items-center gap-1 shrink-0">
+          <span>🌿</span> Trampas
+        </span>
+        <span className={`px-2 py-0.5 rounded-md border text-[9px] sm:text-[10px] font-bold flex items-center gap-1 shrink-0 ${
+          powerOrbAvailable
+            ? 'bg-sky-500/20 border-sky-400 text-sky-200'
+            : 'bg-slate-900/80 border-slate-800 text-slate-500'
+        }`}>
+          <span>💎</span> {powerOrbAvailable ? 'Orbe Listo' : 'Orbe Recargando'}
+        </span>
+        {poisonGasDistance > 0 && (
+          <span className="px-2 py-0.5 rounded-md bg-rose-500/25 border border-rose-500 text-[9px] sm:text-[10px] font-black text-rose-300 flex items-center gap-1 shrink-0 animate-pulse">
+            <span>☣</span> Niebla Tóxica
+          </span>
+        )}
+        {isSuddenDeathActive && (
+          <span className="px-2 py-0.5 rounded-md bg-amber-500/25 border border-amber-400 text-[9px] sm:text-[10px] font-black text-amber-300 flex items-center gap-1 shrink-0 animate-pulse">
+            <span>⚔️</span> Muerte Súbita (+35% Daño)
+          </span>
+        )}
+      </div>
+    </div>
 
       {/* Spectator Mode Indicator when Player is Eliminated */}
       {isSpectating && spectatedAllyName && (

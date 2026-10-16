@@ -80,6 +80,21 @@ export const ModeSelectModal: React.FC<ModeSelectModalProps> = ({
                 <p className="text-xs text-slate-400 mt-1 leading-relaxed">
                   2 escuadrones de 3 combatientes. Serie al mejor de 3 rondas sin reaparición. Visión compartida de arbustos y sinergia táctica.
                 </p>
+                {/* Mañas del Modo 3v3 */}
+                <div className="flex flex-wrap items-center gap-1.5 mt-2">
+                  <span className="px-2 py-0.5 rounded-md bg-sky-950/70 border border-sky-400/40 text-[10px] font-bold text-sky-300">
+                    🌀 Trampolines Cuánticos
+                  </span>
+                  <span className="px-2 py-0.5 rounded-md bg-amber-950/70 border border-amber-400/40 text-[10px] font-bold text-amber-300">
+                    ⚡ Cintas Turbo
+                  </span>
+                  <span className="px-2 py-0.5 rounded-md bg-rose-950/70 border border-rose-500/40 text-[10px] font-bold text-rose-300">
+                    ☣ Niebla a los 32s
+                  </span>
+                  <span className="px-2 py-0.5 rounded-md bg-emerald-950/70 border border-emerald-500/40 text-[10px] font-bold text-emerald-300">
+                    💎 Orbe Súper Central
+                  </span>
+                </div>
                 <div className="flex items-center gap-3 mt-2 text-[11px] font-bold text-amber-300">
                   <span>🏆 +8 Copas Victoria</span>
                   <span>•</span>
@@ -130,6 +145,18 @@ export const ModeSelectModal: React.FC<ModeSelectModalProps> = ({
                 <p className="text-xs text-slate-400 mt-1 leading-relaxed">
                   Enfrentamiento directo cara a cara: Tú contra 1 rival en serie al mejor de 3 rondas. Puntería pura y reflejos tácticos.
                 </p>
+                {/* Mañas del Modo 1v1 */}
+                <div className="flex flex-wrap items-center gap-1.5 mt-2">
+                  <span className="px-2 py-0.5 rounded-md bg-rose-950/70 border border-rose-500/40 text-[10px] font-bold text-rose-300">
+                    ⚔️ Muerte Súbita (+35% Daño)
+                  </span>
+                  <span className="px-2 py-0.5 rounded-md bg-sky-950/70 border border-sky-400/40 text-[10px] font-bold text-sky-300">
+                    🌀 Trampolines de Emboscada
+                  </span>
+                  <span className="px-2 py-0.5 rounded-md bg-amber-950/70 border border-amber-400/40 text-[10px] font-bold text-amber-300">
+                    💎 Control del Orbe Central
+                  </span>
+                </div>
                 <div className="flex items-center gap-3 mt-2 text-[11px] font-bold text-amber-300">
                   <span>🏆 +8 Copas Victoria</span>
                   <span>•</span>
@@ -180,6 +207,18 @@ export const ModeSelectModal: React.FC<ModeSelectModalProps> = ({
                 <p className="text-xs text-slate-400 mt-1 leading-relaxed">
                   Infiltra la base enemiga, agarra su bandera y llévala a tu pedestal. Reapariciones continuas cada 4s. Primer equipo a 2 capturas gana.
                 </p>
+                {/* Mañas del Modo CTF */}
+                <div className="flex flex-wrap items-center gap-1.5 mt-2">
+                  <span className="px-2 py-0.5 rounded-md bg-emerald-950/70 border border-emerald-400/40 text-[10px] font-bold text-emerald-300">
+                    🛡️ Escudo de Portador (-20% daño)
+                  </span>
+                  <span className="px-2 py-0.5 rounded-md bg-rose-950/70 border border-rose-400/40 text-[10px] font-bold text-rose-300">
+                    📡 Baliza Radar en Arbustos
+                  </span>
+                  <span className="px-2 py-0.5 rounded-md bg-amber-950/70 border border-amber-400/40 text-[10px] font-bold text-amber-300">
+                    ⚡ Retorno Rápido por Cintas Turbo
+                  </span>
+                </div>
                 <div className="flex items-center gap-3 mt-2 text-[11px] font-bold text-amber-300">
                   <span>🏆 +8 Copas Victoria</span>
                   <span>•</span>
