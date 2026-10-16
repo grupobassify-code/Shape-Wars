@@ -8,6 +8,7 @@ import React, { useEffect, useState } from 'react';
 import { HeroId, HERO_DEFINITIONS, GameMode, RARITY_CONFIG, CATEGORY_CONFIG } from '../game/types';
 import { UserProgress } from '../game/storage';
 import { ShapeIcon } from './ShapeIcon';
+import { HeroPortrait } from './HeroPortrait';
 import { sounds } from '../game/sound';
 import { X, Wifi, Globe, Trophy, Shield, Swords, Flame, Sparkles } from 'lucide-react';
 import { getRankTitle } from '../game/onlinePlayers';
@@ -187,8 +188,8 @@ export const MatchmakingModal: React.FC<MatchmakingModalProps> = ({
       {/* ======================================================== */}
       <div className="relative z-10 w-full max-w-md bg-slate-900/90 border-2 border-sky-400/60 rounded-3xl p-3.5 sm:p-4 shadow-[0_0_25px_rgba(56,189,248,0.25)] flex items-center justify-between">
         <div className="flex items-center gap-3">
-          <div className="w-14 h-14 rounded-2xl bg-gradient-to-tr from-sky-600 to-indigo-700 border-2 border-white/40 flex items-center justify-center shrink-0 shadow-md">
-            <ShapeIcon heroId={selectedHeroId} size={30} glow={true} />
+          <div className="w-14 h-14 rounded-2xl overflow-hidden bg-gradient-to-tr from-sky-600 to-indigo-700 border-2 border-white/40 flex items-center justify-center shrink-0 shadow-md">
+            <HeroPortrait heroId={selectedHeroId} shapeSize={30} glow={true} className="w-full h-full" />
           </div>
 
           <div>

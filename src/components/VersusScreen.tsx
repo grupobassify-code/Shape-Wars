@@ -9,6 +9,7 @@ import { HeroId, HERO_DEFINITIONS, GameMode, RARITY_CONFIG, CATEGORY_CONFIG } fr
 import { OnlinePlayerProfile, getRankTitle } from '../game/onlinePlayers';
 import { UserProgress } from '../game/storage';
 import { ShapeIcon } from './ShapeIcon';
+import { HeroPortrait } from './HeroPortrait';
 import { sounds } from '../game/sound';
 import { Trophy, Swords, Flame, Shield, Zap, Sparkles } from 'lucide-react';
 
@@ -137,11 +138,13 @@ export const VersusScreen: React.FC<VersusScreenProps> = ({
           {/* Hero Portrait & Badges */}
           <div className="flex items-center gap-4 my-4">
             <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl bg-gradient-to-tr from-sky-600 to-indigo-700 border-2 border-white/40 flex items-center justify-center shrink-0 shadow-lg relative overflow-hidden">
-              <img
-                src={playerDef.avatarUrl}
+              <HeroPortrait
+                heroId={playerDef.id}
+                avatarUrl={playerDef.avatarUrl}
                 alt={playerDef.name}
-                referrerPolicy="no-referrer"
-                className="w-full h-full object-cover"
+                glow={true}
+                shapeSize={38}
+                className="w-full h-full"
               />
             </div>
 
@@ -230,11 +233,13 @@ export const VersusScreen: React.FC<VersusScreenProps> = ({
           {/* Hero Portrait & Badges */}
           <div className="flex items-center gap-4 my-4">
             <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl bg-gradient-to-tr from-rose-600 to-amber-600 border-2 border-white/40 flex items-center justify-center shrink-0 shadow-lg relative overflow-hidden">
-              <img
-                src={rivalDef.avatarUrl}
+              <HeroPortrait
+                heroId={rivalDef.id}
+                avatarUrl={rivalDef.avatarUrl}
                 alt={rivalDef.name}
-                referrerPolicy="no-referrer"
-                className="w-full h-full object-cover"
+                glow={true}
+                shapeSize={38}
+                className="w-full h-full"
               />
             </div>
 

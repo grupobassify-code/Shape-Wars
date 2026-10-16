@@ -5,6 +5,7 @@
 import React from 'react';
 import { MatchStats, HERO_DEFINITIONS } from '../game/types';
 import { ShapeIcon } from './ShapeIcon';
+import { HeroPortrait } from './HeroPortrait';
 import { Trophy, Skull, Equal, RotateCcw, Home, Coins, Clock, Swords } from 'lucide-react';
 import { sounds } from '../game/sound';
 import { OnlinePlayerProfile } from '../game/onlinePlayers';
@@ -209,7 +210,9 @@ export const MatchResultModal: React.FC<MatchResultModalProps> = ({
         {/* Hero Card */}
         <div className="flex items-center justify-between px-4 py-2.5 bg-slate-850/50 rounded-xl border border-slate-800/80">
           <div className="flex items-center gap-3">
-            <ShapeIcon heroId={stats.playerHeroId} size={30} />
+            <div className="w-10 h-10 rounded-lg overflow-hidden shrink-0 flex items-center justify-center">
+              <HeroPortrait heroId={stats.playerHeroId} shapeSize={26} glow={true} className="w-full h-full" />
+            </div>
             <div className="text-left">
               <span className="text-xs font-bold text-white block">{def.name}</span>
               <span className="text-[10px] text-slate-400">Daño total infligido: {stats.playerDamage}</span>

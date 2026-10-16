@@ -11,6 +11,7 @@
 import React, { useState, useEffect } from 'react';
 import { HeroId, HERO_DEFINITIONS, GameMode } from '../game/types';
 import { ShapeIcon } from './ShapeIcon';
+import { HeroPortrait } from './HeroPortrait';
 import { Bot, Sparkles, Swords, Trophy, Shield, Zap, Flame, Flag, Play } from 'lucide-react';
 import { sounds } from '../game/sound';
 
@@ -172,19 +173,20 @@ export const AILoadingScreen: React.FC<AILoadingScreenProps> = ({
           <div className="relative">
             {/* Glowing avatar frame */}
             <div className="w-36 h-36 sm:w-44 sm:h-44 rounded-3xl overflow-hidden border-4 border-sky-400 shadow-[0_0_35px_rgba(56,189,248,0.5)] bg-slate-900 relative">
-              <img
-                src={playerHero.avatarUrl}
+              <HeroPortrait
+                heroId={playerHero.id}
+                avatarUrl={playerHero.avatarUrl}
                 alt={playerHero.name}
-                referrerPolicy="no-referrer"
-                className="w-full h-full object-cover scale-105"
-                onError={(e) => {
-                  (e.target as HTMLElement).style.display = 'none';
-                }}
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-sky-950/80 via-transparent to-transparent" />
-              <div className="absolute top-2 left-2 px-2 py-0.5 rounded bg-sky-500 text-slate-950 font-black text-[10px] uppercase font-mono">
-                TÚ
-              </div>
+                glow={true}
+                shapeSize={54}
+                className="w-full h-full"
+                imgClassName="w-full h-full object-cover scale-105"
+              >
+                <div className="absolute inset-0 bg-gradient-to-t from-sky-950/80 via-transparent to-transparent pointer-events-none" />
+                <div className="absolute top-2 left-2 px-2 py-0.5 rounded bg-sky-500 text-slate-950 font-black text-[10px] uppercase font-mono z-10">
+                  TÚ
+                </div>
+              </HeroPortrait>
             </div>
           </div>
 
@@ -218,19 +220,20 @@ export const AILoadingScreen: React.FC<AILoadingScreenProps> = ({
           <div className="relative">
             {/* Glowing avatar frame */}
             <div className="w-36 h-36 sm:w-44 sm:h-44 rounded-3xl overflow-hidden border-4 border-rose-500 shadow-[0_0_35px_rgba(244,63,94,0.5)] bg-slate-900 relative">
-              <img
-                src={primaryRival.avatarUrl}
+              <HeroPortrait
+                heroId={primaryRival.id}
+                avatarUrl={primaryRival.avatarUrl}
                 alt={primaryRival.name}
-                referrerPolicy="no-referrer"
-                className="w-full h-full object-cover scale-105"
-                onError={(e) => {
-                  (e.target as HTMLElement).style.display = 'none';
-                }}
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-rose-950/80 via-transparent to-transparent" />
-              <div className="absolute top-2 right-2 px-2 py-0.5 rounded bg-rose-500 text-white font-black text-[10px] uppercase font-mono">
-                RIVAL
-              </div>
+                glow={true}
+                shapeSize={54}
+                className="w-full h-full"
+                imgClassName="w-full h-full object-cover scale-105"
+              >
+                <div className="absolute inset-0 bg-gradient-to-t from-rose-950/80 via-transparent to-transparent pointer-events-none" />
+                <div className="absolute top-2 right-2 px-2 py-0.5 rounded bg-rose-500 text-white font-black text-[10px] uppercase font-mono z-10">
+                  RIVAL
+                </div>
+              </HeroPortrait>
             </div>
           </div>
 

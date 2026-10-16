@@ -43,9 +43,15 @@ Proporciona un consejo táctico conciso y motivador de máximo 2 oraciones direc
   }
 });
 
+// Serve static assets directly (ensures images always load in dev & prod)
+app.use('/src/assets', express.static('src/assets'));
+app.use('/assets', express.static('public/assets'));
+app.use(express.static('public'));
+
 async function startServer() {
   if (process.env.NODE_ENV === 'production') {
     app.use(express.static('dist'));
+    app.use(express.static('public'));
   } else {
     const vite = await createViteServer({
       server: { middlewareMode: true },

@@ -13,6 +13,7 @@ import React from 'react';
 import { UserProgress } from '../game/storage';
 import { HeroId, HERO_DEFINITIONS, GameMode, TROPHY_ROAD_REWARDS } from '../game/types';
 import { ShapeIcon } from './ShapeIcon';
+import { HeroPortrait } from './HeroPortrait';
 import { Swords, Users, Wrench, Settings, Play, Trophy, Shield, Zap, Sparkles, ChevronRight, User, Layers, Flame, Flag, Gift, ShieldCheck } from 'lucide-react';
 import { sounds } from '../game/sound';
 
@@ -181,22 +182,22 @@ export const MainMenu: React.FC<MainMenuProps> = ({
           {/* Avatar / Portrait Showcase */}
           <div className="relative group cursor-pointer" onClick={() => onNavigate('heroes')}>
             <div className="w-32 h-32 sm:w-48 sm:h-48 rounded-3xl overflow-hidden border-3 border-sky-400/60 shadow-[0_0_35px_rgba(56,189,248,0.35)] bg-slate-900/90 relative flex items-center justify-center group-hover:scale-105 transition-all duration-300">
-              <img
-                src={currentHero.avatarUrl}
+              <HeroPortrait
+                heroId={selectedHeroId}
+                avatarUrl={currentHero.avatarUrl}
                 alt={currentHero.name}
-                referrerPolicy="no-referrer"
-                className="w-full h-full object-cover"
-                onError={(e) => {
-                  (e.target as HTMLElement).style.display = 'none';
-                }}
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent opacity-60" />
+                glow={true}
+                shapeSize={52}
+                className="w-full h-full"
+              >
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent opacity-60 pointer-events-none" />
 
-              {/* Floating Power Level Tag */}
-              <div className="absolute top-2 right-2 px-1.5 py-0.5 rounded-lg bg-amber-500/90 border border-amber-300 text-slate-950 font-black text-[10px] sm:text-[11px] font-mono shadow-md flex items-center gap-1">
-                <Zap className="w-2.5 h-2.5 sm:w-3 sm:h-3 fill-current" />
-                <span>NIVEL {powerLevel}</span>
-              </div>
+                {/* Floating Power Level Tag */}
+                <div className="absolute top-2 right-2 px-1.5 py-0.5 rounded-lg bg-amber-500/90 border border-amber-300 text-slate-950 font-black text-[10px] sm:text-[11px] font-mono shadow-md flex items-center gap-1 z-10">
+                  <Zap className="w-2.5 h-2.5 sm:w-3 sm:h-3 fill-current" />
+                  <span>NIVEL {powerLevel}</span>
+                </div>
+              </HeroPortrait>
             </div>
 
             {/* Change Hero prompt overlay pill */}

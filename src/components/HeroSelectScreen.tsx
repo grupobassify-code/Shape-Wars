@@ -6,6 +6,7 @@ import React, { useState } from 'react';
 import { HeroId, HERO_DEFINITIONS, ALL_HERO_IDS } from '../game/types';
 import { UserProgress, unlockHero, getStatBonusMultiplier } from '../game/storage';
 import { ShapeIcon } from './ShapeIcon';
+import { HeroPortrait } from './HeroPortrait';
 import { Shield, Zap, Lock, Check, Coins, Swords, Gauge, Crosshair, Sparkles } from 'lucide-react';
 import { sounds } from '../game/sound';
 
@@ -108,14 +109,12 @@ export const HeroSelectScreen: React.FC<HeroSelectScreenProps> = ({
               >
                 <div className="flex items-center gap-3">
                   <div className="w-12 h-12 rounded-lg overflow-hidden bg-slate-800 border border-slate-700/80 shrink-0 flex items-center justify-center">
-                    <img
-                      src={def.avatarUrl}
+                    <HeroPortrait
+                      heroId={def.id}
+                      avatarUrl={def.avatarUrl}
                       alt={def.name}
-                      referrerPolicy="no-referrer"
-                      className="w-full h-full object-cover"
-                      onError={(e) => {
-                        (e.target as HTMLElement).style.display = 'none';
-                      }}
+                      shapeSize={24}
+                      className="w-full h-full"
                     />
                   </div>
                   <div>
@@ -151,16 +150,16 @@ export const HeroSelectScreen: React.FC<HeroSelectScreenProps> = ({
           {/* Hero Header */}
           <div className="flex items-center gap-5 border-b border-slate-800 pb-6">
             <div className="w-20 h-20 rounded-2xl overflow-hidden bg-slate-800 border-2 border-slate-700 shadow-inner shrink-0 relative flex items-center justify-center">
-              <img
-                src={activeDef.avatarUrl}
+              <HeroPortrait
+                heroId={activeDef.id}
+                avatarUrl={activeDef.avatarUrl}
                 alt={activeDef.name}
-                referrerPolicy="no-referrer"
-                className="w-full h-full object-cover"
-                onError={(e) => {
-                  (e.target as HTMLElement).style.display = 'none';
-                }}
-              />
-              <div className="absolute inset-0 pointer-events-none ring-1 ring-inset ring-white/10 rounded-2xl" />
+                glow={true}
+                shapeSize={38}
+                className="w-full h-full"
+              >
+                <div className="absolute inset-0 pointer-events-none ring-1 ring-inset ring-white/10 rounded-2xl" />
+              </HeroPortrait>
             </div>
             <div>
               <div className="flex items-center gap-2.5">

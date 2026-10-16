@@ -57,6 +57,7 @@ import { sounds } from './sound';
 import { getStatBonusMultiplier } from './storage';
 import { OnlinePlayerProfile } from './onlinePlayers';
 import { RoomNetworkManager, NetworkPlayerInput, NetworkWorldSnapshot } from './roomNetwork';
+import { ARENA_TEXTURES } from '../assets/heroAvatars';
 
 export interface KnockoutUIState {
   timer: number;
@@ -235,13 +236,18 @@ export class GameEngine {
 
   private loadArenaAssets(): void {
     const floor = new Image();
-    floor.src = '/src/assets/images/pixel_arena_floor_1791571600056.jpg';
     floor.onload = () => {
       this.floorImg = floor;
     };
+    floor.onerror = (e) => {
+      console.warn('Could not load floor texture, fallback active', e);
+    };
+    floor.src = ARENA_TEXTURES.floor;
+    if (floor.complete && floor.naturalWidth > 0) {
+      this.floorImg = floor;
+    }
 
     const wall = new Image();
-    wall.src = '/src/assets/images/pixel_wall_block_1791571560112.jpg';
     wall.onload = () => {
       this.wallImg = wall;
       try {
@@ -250,15 +256,32 @@ export class GameEngine {
         // Fallback
       }
     };
+    wall.onerror = (e) => {
+      console.warn('Could not load wall texture, fallback active', e);
+    };
+    wall.src = ARENA_TEXTURES.wall;
+    if (wall.complete && wall.naturalWidth > 0) {
+      this.wallImg = wall;
+      try {
+        this.wallPattern = this.ctx.createPattern(wall, 'repeat');
+      } catch {
+        // Fallback
+      }
+    }
 
     const pillar = new Image();
-    pillar.src = '/src/assets/images/pixel_pillar_block_1791571572168.jpg';
     pillar.onload = () => {
       this.pillarImg = pillar;
     };
+    pillar.onerror = (e) => {
+      console.warn('Could not load pillar texture, fallback active', e);
+    };
+    pillar.src = ARENA_TEXTURES.pillar;
+    if (pillar.complete && pillar.naturalWidth > 0) {
+      this.pillarImg = pillar;
+    }
 
     const bush = new Image();
-    bush.src = '/src/assets/images/pixel_bush_leaves_1791571584940.jpg';
     bush.onload = () => {
       this.bushImg = bush;
       try {
@@ -267,6 +290,18 @@ export class GameEngine {
         // Fallback
       }
     };
+    bush.onerror = (e) => {
+      console.warn('Could not load bush texture, fallback active', e);
+    };
+    bush.src = ARENA_TEXTURES.bush;
+    if (bush.complete && bush.naturalWidth > 0) {
+      this.bushImg = bush;
+      try {
+        this.bushPattern = this.ctx.createPattern(bush, 'repeat');
+      } catch {
+        // Fallback
+      }
+    }
   }
 
   public initMatch(): void {

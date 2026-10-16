@@ -12,6 +12,7 @@ import React, { useState } from 'react';
 import { UserProgress } from '../game/storage';
 import { HeroId, HERO_DEFINITIONS, ALL_HERO_IDS, BATTLE_BACKGROUNDS, BattleBackgroundDef } from '../game/types';
 import { ShapeIcon } from './ShapeIcon';
+import { HeroPortrait } from './HeroPortrait';
 import { Trophy, Swords, Shield, Zap, X, Award, Flame, Check, Sparkles, Lock, Layers } from 'lucide-react';
 import { sounds } from '../game/sound';
 
@@ -181,8 +182,8 @@ export const ProfileModal: React.FC<ProfileModalProps> = ({
                       style={{ backgroundColor: currentBgDef.accentColor }}
                       className="absolute w-20 h-20 rounded-full blur-md opacity-35 animate-pulse"
                     />
-                    <div className="relative w-18 h-18 sm:w-20 sm:h-20 rounded-2xl bg-slate-950/80 border border-white/30 flex items-center justify-center shadow-xl">
-                      <ShapeIcon heroId={selectedAvatar} size={42} glow={true} />
+                    <div className="relative w-18 h-18 sm:w-20 sm:h-20 rounded-2xl overflow-hidden bg-slate-950/80 border border-white/30 flex items-center justify-center shadow-xl">
+                      <HeroPortrait heroId={selectedAvatar} shapeSize={42} glow={true} className="w-full h-full" />
                     </div>
                     <span className="text-xs font-black font-display text-white mt-2 uppercase tracking-wider drop-shadow-md">
                       {HERO_DEFINITIONS[selectedAvatar]?.name}
@@ -370,7 +371,9 @@ export const ProfileModal: React.FC<ProfileModalProps> = ({
                       }`}
                       title={isUnlocked ? def.name : `${def.name} (Bloqueado)`}
                     >
-                      <ShapeIcon heroId={heroId} size={26} glow={isCurrent} />
+                      <div className="w-8 h-8 rounded-lg overflow-hidden flex items-center justify-center shrink-0">
+                        <HeroPortrait heroId={heroId} shapeSize={22} glow={isCurrent} className="w-full h-full" />
+                      </div>
                       <span className="text-[9px] font-bold text-slate-300 mt-1 uppercase truncate w-full text-center">
                         {def.name}
                       </span>

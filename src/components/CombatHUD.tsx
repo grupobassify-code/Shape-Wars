@@ -14,6 +14,7 @@ import { HeroId, KnockoutParticipant, HERO_DEFINITIONS, FlagState, GameMode } fr
 import { Crosshair, Pause, Play, RotateCcw, Shield, Swords, Trophy, Zap, Sparkles, Flag } from 'lucide-react';
 import { sounds } from '../game/sound';
 import { ShapeIcon } from './ShapeIcon';
+import { HeroPortrait } from './HeroPortrait';
 
 interface CombatHUDProps {
   timer: number;
@@ -146,7 +147,7 @@ export const CombatHUD: React.FC<CombatHUDProps> = ({
                 ? blueParticipants.map((p) => (
                     <div
                       key={p.id}
-                      className={`relative flex items-center justify-center w-5 h-5 sm:w-7 sm:h-7 rounded-md sm:rounded-lg border transition-all shrink-0 ${
+                      className={`relative flex items-center justify-center w-5 h-5 sm:w-7 sm:h-7 rounded-md sm:rounded-lg overflow-hidden border transition-all shrink-0 ${
                         p.isAlive
                           ? p.isPlayer
                             ? 'bg-sky-500/25 border-sky-400 ring-1 sm:ring-2 ring-sky-400/40'
@@ -155,9 +156,9 @@ export const CombatHUD: React.FC<CombatHUDProps> = ({
                       }`}
                       title={`${p.name}: ${p.isAlive ? `${p.hp}/${p.maxHp} HP` : 'Eliminado'}`}
                     >
-                      <ShapeIcon heroId={p.heroId} size={12} />
+                      <HeroPortrait heroId={p.heroId} shapeSize={12} className="w-full h-full" />
                       {!p.isAlive && (
-                        <div className="absolute inset-0 flex items-center justify-center bg-black/60 rounded-md sm:rounded-lg text-rose-500 font-black text-[10px]">
+                        <div className="absolute inset-0 flex items-center justify-center bg-black/60 rounded-md sm:rounded-lg text-rose-500 font-black text-[10px] z-10">
                           ✕
                         </div>
                       )}
@@ -248,16 +249,16 @@ export const CombatHUD: React.FC<CombatHUDProps> = ({
                 ? redParticipants.map((p) => (
                     <div
                       key={p.id}
-                      className={`relative flex items-center justify-center w-5 h-5 sm:w-7 sm:h-7 rounded-md sm:rounded-lg border transition-all shrink-0 ${
+                      className={`relative flex items-center justify-center w-5 h-5 sm:w-7 sm:h-7 rounded-md sm:rounded-lg overflow-hidden border transition-all shrink-0 ${
                         p.isAlive
                           ? 'bg-slate-800/80 border-rose-500/50'
                           : 'bg-slate-900/60 border-slate-700/40 grayscale opacity-40'
                       }`}
                       title={`${p.name}: ${p.isAlive ? `${p.hp}/${p.maxHp} HP` : 'Eliminado'}`}
                     >
-                      <ShapeIcon heroId={p.heroId} size={12} />
+                      <HeroPortrait heroId={p.heroId} shapeSize={12} className="w-full h-full" />
                       {!p.isAlive && (
-                        <div className="absolute inset-0 flex items-center justify-center bg-black/60 rounded-md sm:rounded-lg text-rose-500 font-black text-[10px]">
+                        <div className="absolute inset-0 flex items-center justify-center bg-black/60 rounded-md sm:rounded-lg text-rose-500 font-black text-[10px] z-10">
                           ✕
                         </div>
                       )}

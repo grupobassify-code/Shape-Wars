@@ -12,6 +12,7 @@ import {
   getStatBonusMultiplier,
 } from '../game/storage';
 import { ShapeIcon } from './ShapeIcon';
+import { HeroPortrait } from './HeroPortrait';
 import { Heart, Swords, Zap, Coins, ChevronUp, Lock } from 'lucide-react';
 import { sounds } from '../game/sound';
 
@@ -168,7 +169,9 @@ export const UpgradesScreen: React.FC<UpgradesScreenProps> = ({ progress, onUpda
                   : 'bg-slate-900/80 border-slate-800 hover:border-slate-700'
               }`}
             >
-              <ShapeIcon heroId={id} size={30} glow={isSelected} />
+              <div className="w-10 h-10 rounded-lg overflow-hidden shrink-0 flex items-center justify-center">
+                <HeroPortrait heroId={id} shapeSize={26} glow={isSelected} className="w-full h-full" />
+              </div>
               <div className="overflow-hidden">
                 <div className="flex items-center gap-1.5">
                   <span className="font-bold text-white text-sm truncate font-display">{def.name}</span>
@@ -185,8 +188,8 @@ export const UpgradesScreen: React.FC<UpgradesScreenProps> = ({ progress, onUpda
       <div className="bg-slate-900/90 border border-slate-800 rounded-2xl p-6 sm:p-8 flex flex-col gap-6 shadow-xl">
         <div className="flex items-center justify-between border-b border-slate-800 pb-5">
           <div className="flex items-center gap-4">
-            <div className="p-2.5 bg-slate-800 rounded-xl border border-slate-700">
-              <ShapeIcon heroId={selectedHeroId} size={48} glow={true} />
+            <div className="w-16 h-16 rounded-xl overflow-hidden border border-slate-700 bg-slate-800 shrink-0 flex items-center justify-center">
+              <HeroPortrait heroId={selectedHeroId} shapeSize={44} glow={true} className="w-full h-full" />
             </div>
             <div>
               <div className="flex items-center gap-2">

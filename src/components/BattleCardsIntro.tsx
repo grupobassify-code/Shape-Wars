@@ -12,6 +12,7 @@
 import React, { useState, useEffect } from 'react';
 import { HeroId, KnockoutParticipant, HERO_DEFINITIONS, BATTLE_BACKGROUNDS, GameMode } from '../game/types';
 import { ShapeIcon } from './ShapeIcon';
+import { HeroPortrait } from './HeroPortrait';
 import { Crown, Sparkles, Swords, Flame, Flag, Trophy, Shield, Zap, FastForward } from 'lucide-react';
 import { sounds } from '../game/sound';
 
@@ -177,8 +178,8 @@ export const BattleCardsIntro: React.FC<BattleCardsIntroProps> = ({
               style={{ backgroundColor: bgDef.accentColor }}
               className="absolute w-16 h-16 rounded-full blur-md opacity-40 animate-pulse"
             />
-            <div className="relative w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-slate-950/70 border border-white/30 flex items-center justify-center shadow-xl">
-              <ShapeIcon heroId={p.heroId} size={32} glow={true} />
+            <div className="relative w-14 h-14 sm:w-16 sm:h-16 rounded-2xl overflow-hidden bg-slate-950/70 border border-white/30 flex items-center justify-center shadow-xl">
+              <HeroPortrait heroId={p.heroId} shapeSize={32} glow={true} className="w-full h-full" />
             </div>
           </div>
           <span className="text-[11px] sm:text-xs font-black font-display text-white mt-1.5 uppercase tracking-wide drop-shadow-md">

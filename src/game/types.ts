@@ -2,6 +2,8 @@
  * Shape Wars - Type Definitions & Constants
  */
 
+import { HERO_AVATARS } from '../assets/heroAvatars';
+
 export type HeroId =
   | 'pulsar'
   | 'volt'
@@ -243,7 +245,7 @@ export const HERO_DEFINITIONS: Record<HeroId, HeroDefinition> = {
     role: 'Atacante a Distancia Equilibrado',
     category: 'Técnicos',
     rarity: 'Inicial',
-    avatarUrl: '/src/assets/images/hero_pulsar_portrait_1791566427575.jpg',
+    avatarUrl: HERO_AVATARS.pulsar,
     baseHp: 100,
     baseSpeed: 170,
     baseDamage: 20,
@@ -276,7 +278,7 @@ export const HERO_DEFINITIONS: Record<HeroId, HeroDefinition> = {
     role: 'Atacante Veloz y Agresivo',
     category: 'Asesino',
     rarity: 'Superespecial',
-    avatarUrl: '/src/assets/images/hero_volt_portrait_1791566440706.jpg',
+    avatarUrl: HERO_AVATARS.volt,
     baseHp: 85,
     baseSpeed: 210,
     baseDamage: 16,
@@ -309,7 +311,7 @@ export const HERO_DEFINITIONS: Record<HeroId, HeroDefinition> = {
     role: 'Tanque Defensivo Pesado',
     category: 'Tanques',
     rarity: 'Especial',
-    avatarUrl: '/src/assets/images/hero_bastion_portrait_1791566451816.jpg',
+    avatarUrl: HERO_AVATARS.bastion,
     baseHp: 150,
     baseSpeed: 135,
     baseDamage: 22,
@@ -342,7 +344,7 @@ export const HERO_DEFINITIONS: Record<HeroId, HeroDefinition> = {
     role: 'Apoyo Táctico y Restauración',
     category: 'Apoyos',
     rarity: 'Especial',
-    avatarUrl: '/src/assets/images/hero_nova_portrait_1791566461364.jpg',
+    avatarUrl: HERO_AVATARS.nova,
     baseHp: 105,
     baseSpeed: 160,
     baseDamage: 14,
@@ -374,7 +376,7 @@ export const HERO_DEFINITIONS: Record<HeroId, HeroDefinition> = {
     role: 'Tirador de Control Táctico',
     category: 'Sniperos',
     rarity: 'Superespecial',
-    avatarUrl: '/src/assets/images/hero_prisma_portrait_1791572925320.jpg',
+    avatarUrl: HERO_AVATARS.prisma,
     baseHp: 95,
     baseSpeed: 165,
     baseDamage: 15,
@@ -409,7 +411,7 @@ export const HERO_DEFINITIONS: Record<HeroId, HeroDefinition> = {
     role: 'Especialista en Daño de Área',
     category: 'Artillería',
     rarity: 'Épico',
-    avatarUrl: '/src/assets/images/hero_boom_portrait_1791572941838.jpg',
+    avatarUrl: HERO_AVATARS.boom,
     baseHp: 110,
     baseSpeed: 155,
     baseDamage: 28,
@@ -443,7 +445,7 @@ export const HERO_DEFINITIONS: Record<HeroId, HeroDefinition> = {
     role: 'Asesino de Sigilo y Velocidad',
     category: 'Asesino',
     rarity: 'Mítico',
-    avatarUrl: '/src/assets/images/hero_eclipse_portrait_1791572961839.jpg',
+    avatarUrl: HERO_AVATARS.eclipse,
     baseHp: 80,
     baseSpeed: 215,
     baseDamage: 18,
@@ -476,7 +478,7 @@ export const HERO_DEFINITIONS: Record<HeroId, HeroDefinition> = {
     role: 'Tirador y Rastreo Guiado',
     category: 'Sniperos',
     rarity: 'Épico',
-    avatarUrl: '/src/assets/images/hero_cometa_portrait_1791572980833.jpg',
+    avatarUrl: HERO_AVATARS.cometa,
     baseHp: 100,
     baseSpeed: 175,
     baseDamage: 22,
@@ -509,7 +511,7 @@ export const HERO_DEFINITIONS: Record<HeroId, HeroDefinition> = {
     role: 'Tanque Pesado y Empuje',
     category: 'Tanques',
     rarity: 'Mítico',
-    avatarUrl: '/src/assets/images/hero_titan_portrait_1791572997975.jpg',
+    avatarUrl: HERO_AVATARS.titan,
     baseHp: 180,
     baseSpeed: 125,
     baseDamage: 32,
@@ -542,7 +544,7 @@ export const HERO_DEFINITIONS: Record<HeroId, HeroDefinition> = {
     role: 'Control de Campo y Singularidad',
     category: 'Artillería',
     rarity: 'Legendario',
-    avatarUrl: '/src/assets/images/hero_vortex_portrait_1791573029213.jpg',
+    avatarUrl: HERO_AVATARS.vortex,
     baseHp: 95,
     baseSpeed: 160,
     baseDamage: 24,
