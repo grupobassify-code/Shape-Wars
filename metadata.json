@@ -1,0 +1,7 @@
+{
+  "name": "Shape Wars",
+  "description": "Shape Wars: 2D top-down geometric arena brawler featuring 3v3 squad combat, distinct hero archetypes, smart AI bots, tactical bush stealth, and persistent character progression.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
+
